@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❣Happy New Year 2025❣</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+
+            
+        }
+
+        /* Star-shaped lights */
+        .light {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: transparent;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0;
+            animation: blink 1s linear infinite, explode 1s ease-out infinite;
+        }
+
+        /* Blinking effect */
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Firecracker effect with explosion */
+        @keyframes explode {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const colors = ['#FF5733', '#FFC300', '#DAF7A6', '#C70039', '#900C3F', '#00FF7F', '#1E90FF', '#8A2BE2', '#FF6347', '#FFD700'];
+
+    // Function to create a random number of colorful lights
+    function createRandomLights(numLights) {
+        for (let i = 0; i < numLights; i++) {
+            const light = document.createElement('div');
+            light.classList.add('light');
+
+            // Random color from the colors array
+            light.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+            // Random position for each light
+            light.style.left = `${Math.random() * 100}vw`;
+            light.style.top = `${Math.random() * 100}vh`;
+
+            document.body.appendChild(light);
+
+            // Random animation duration between 1 and 3 seconds
+            const animationDuration = Math.random() * 2 + 1; // Between 1s and 3s
+            light.style.animationDuration = `${animationDuration}s`;
+        }
+    }
+
+    // Create 50 random lights initially on page load
+    createRandomLights(50);
+
+    // Optionally, recreate the lights on window resize
+    window.addEventListener('resize', () => {
+        document.querySelectorAll('.light').forEach(light => light.remove());
+        createRandomLights(50);
+    });
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #000428, #004e92);
+            color: white;
+            overflow: hidden;
+        }
+
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .welcome-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .welcome-screen button {
+            background: #ff6600;
+            color: white;
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 2rem;
+        }
+
+        .welcome-screen button:hover {
+            background: #ff4500;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .content-screen {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            background: hwb(216 2% 84%);
+        }
+        .content-screen h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #FF69B4; /* Default pink color for the text */
+            animation: colorChange 5s infinite alternate;
+        }
+
+        .content-screen p {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            color: #FFD700; /* Golden color for the paragraph text */
+        }
+
+        .content-screen button {
+            margin-top: 3rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+            background: #00aaff;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .lights {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .lantern {
+            position: absolute;
+            bottom: -100px;
+            width: 60px;
+            height: 90px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 10s linear infinite;
+        }
+
+        .lantern::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            width: 10px;
+            height: 20px;
+            background: #555;
+        }
+            @keyframes colorChangeH1 {
+                0% {
+                    color: #FF69B4; /* गुलाबी */
+                }
+                25% {
+                    color: #32CD32; /* हरा */
+                }
+                50% {
+                    color: #FF6347; /* टमाटर */
+                }
+                75% {
+                    color: #1E90FF; /* नीला */
+                }
+                100% {
+                    color: #FFD700; /* सुनहरा */
+                }
+            }
+        
+            @keyframes colorChangeP {
+                0% {
+                    color: #8A2BE2; /* बैंगनी */
+                }
+                25% {
+                    color: #00FFFF; /* सियान */
+                }
+                50% {
+                    color: #FF4500; /* नारंगी */
+                }
+                75% {
+                    color: #7FFF00; /* चार्टरेस हरा */
+                }
+                100% {
+                    color: #DC143C; /* गहरा लाल */
+                }
+            }
+        
+            .content-screen h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                animation: colorChangeH1 5s infinite alternate;
+            }
+        
+            .content-screen p {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+                animation: colorChangeP 6s infinite alternate; /* अलग समय का अंतर */
+            }
+        </style>
+        <style>
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-120vh);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #FF69B4; /* Pink */
+            }
+            25% {
+                color: #32CD32; /* Lime Green */
+            }
+            50% {
+                color: #FF6347; /* Tomato */
+            }
+            75% {
+                color: #1E90FF; /* Dodger Blue */
+            }
+            100% {
+                color: #FFD700; /* Gold */
+            }
+        }
+        </style>
+
+    
+</head>
+<body>
+    <div class="welcome-screen">
+        <h1>नए साल में आपका स्वागत है!</h1>
+        <button onclick="startNewYear()">नए साल के आगमन के लिए क्लिक करें</button>
+    </div>
+
+    <div class="content-screen">
+        <h1>नए साल की हार्दिक शुभकामनाएं!</h1>
+        <p>"सपने सच हों और खुशियां बरसें, नए साल में आपका जीवन चमके।"</p>
+        <button onclick="showPoetry()">आगे बढ़ें</button>
+    </div>
+
+    <script>
+        let canvas, ctx;
+
+        function createCanvas() {
+            canvas = document.createElement('canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            document.body.appendChild(canvas);
+            ctx = canvas.getContext('2d');
+        }
+
+        function fireworks() {
+            const particles = [];
+            const colors = ['#FFB3B3', '#FFCC99', '#DAF7A6', '#FF99CC', '#C7B8FF']; // Soft pastel colors
+
+            function createParticle(x, y) {
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particles.push({
+                    x,
+                    y,
+                    radius: Math.random() * 5 + 1,
+                    dx: Math.random() * 4 - 2,
+                    dy: Math.random() * 4 - 2,
+                    color,
+                });
+            }
+
+            function drawParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((p, i) => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    p.radius *= 0.97;
+
+                    if (p.radius < 0.5) particles.splice(i, 1);
+                });
+            }
+
+            function loop() {
+                drawParticles();
+                requestAnimationFrame(loop);
+            }
+
+            canvas.addEventListener('click', (e) => {
+                for (let i = 0; i < 30; i++) {
+                    createParticle(e.clientX, e.clientY);
+                }
+            });
+
+            loop();
+        }
+        
+
+        function generateLanterns() {
+            // Function to generate sky lanterns with light pastel colors
+            for (let i = 0; i < 5; i++) {
+                const lantern = document.createElement('div');
+                lantern.classList.add('lantern');
+
+                // Random pastel color for the lantern
+                const color = `hsl(${Math.random() * 360}, 100%, 80%)`; // Light pastel colors (high lightness)
+                lantern.style.backgroundColor = color;
+
+                lantern.style.left = `${Math.random() * 100}vw`;
+                document.body.appendChild(lantern);
+            }
+
+            // After 5 seconds, start showing lanterns sequentially
+            setTimeout(() => {
+                let count = 0;
+                const lanternInterval = setInterval(() => {
+                    const lantern = document.createElement('div');
+                    lantern.classList.add('lantern');
+
+                    // Random pastel color for the lantern
+                    const color = `hsl(${Math.random() * 360}, 100%, 80%)`; // Light pastel colors
+                    lantern.style.backgroundColor = color;
+
+                    lantern.style.left = `${Math.random() * 100}vw`;
+                    document.body.appendChild(lantern);
+                    count++;
+
+                    if (count >= 10) {
+                        clearInterval(lanternInterval);
+                    }
+                }, 500);
+            }, 5000);
+        }
+
+        function createLights() {
+            const lightContainer = document.createElement('div');
+            lightContainer.classList.add('lights');
+            document.body.appendChild(lightContainer);
+
+            setInterval(() => {
+                const light = document.createElement('div');
+                light.style.width = light.style.height = `${Math.random() * 10 + 5}px`;
+                light.style.background = `hsl(${Math.random() * 360}, 100%, 80%)`; // Light pastel lights
+                light.style.position = 'absolute';
+                light.style.top = `${Math.random() * 100}vh`;
+                light.style.left = `${Math.random() * 100}vw`;
+                light.style.borderRadius = '50%';
+                lightContainer.appendChild(light);
+
+                setTimeout(() => {
+                    light.remove();
+                }, 3000);
+            }, 100);
+        }
+
+        function startNewYear() {
+            const welcomeScreen = document.querySelector('.welcome-screen');
+            welcomeScreen.classList.add('hidden');
+
+            setTimeout(() => {
+                welcomeScreen.style.display = 'none';
+                document.querySelector('.content-screen').style.display = 'flex';
+
+                createCanvas();
+                fireworks();
+                generateLanterns();
+                createLights();
+                playMusic();
+            }, 2000);
+        }
+
+        function playMusic() {
+            const audio = new Audio('happy-xmas-happy-new-year-2025-271088.mp3');
+            audio.loop = true;
+            audio.play().catch((error) => {
+                console.error('म्यूजिक प्ले करने में समस्या हो रही है:', error);
+            });
+        }
+        
+        
+        
+        
+
+        function showPoetry() {
+            window.location.href = "poetry.html";
+        }
+
+        window.addEventListener('resize', () => {
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
+        
+    </script>
+    
+    
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Movement Perfect Heart Effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #101820;
+        }
+
+        .heart {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 0, 0, 0.7);
+            clip-path: polygon(50% 0%, 0% 40%, 50% 100%, 100% 40%);
+            pointer-events: none;
+            animation: pulse .5s ease-out infinite;
+            transform: rotate(45deg);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.5) rotate(45deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5) rotate(45deg);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0.5) rotate(45deg);
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            createHeartEffect(e);
+        });
+
+        function createHeartEffect(e) {
+            let heart = document.createElement('div');
+            heart.classList.add('heart');
+
+            // Set position of the heart shape to the mouse coordinates
+            heart.style.left = `${e.pageX - 30}px`;  // Offset to center the heart
+            heart.style.top = `${e.pageY - 30}px`;   // Offset to center the heart
+
+            // Set random size of the heart shape
+            let size = Math.random() * 30 + 20; // Random size between 20px and 50px
+            heart.style.width = `${size}px`;
+            heart.style.height = `${size}px`;
+
+            // Set random background color for the heart
+            let randomColor = `hsl(${Math.random() * 360}, 100%, 70%)`; // Random color from HSL
+            heart.style.backgroundColor = randomColor;
+
+            // Append the heart to the body
+            document.body.appendChild(heart);
+
+            // Remove the heart after animation ends
+            setTimeout(() => {
+                heart.remove();
+            }, 1000); // Matches animation duration
+        }
+    </script>
+</body>
+</html>
+
+
