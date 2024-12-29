@@ -139,14 +139,20 @@
         }
 
         .content-screen {
-            display: none;
+            display: none; /* Default display is none */
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100vh; /* Viewport की पूरी ऊंचाई */
+            width: 100vw; /* Viewport की पूरी चौड़ाई */
             flex-direction: column;
             text-align: center;
-            background: hwb(216 2% 84%);
+            margin: 0; /* अतिरिक्त मार्जिन हटाना */
+            padding: 0; /* अतिरिक्त पेडिंग हटाना */
+            box-sizing: border-box; /* बॉर्डर और पेडिंग को सही से संभालने के लिए */
+            overflow: hidden; /* एक्स्ट्रा स्क्रॉलिंग हटाने के लिए */
+            background: hwb(217 1% 75%);
         }
+        
         .content-screen h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
@@ -279,18 +285,26 @@
 
     
 </head>
+
 <body>
     <div class="welcome-screen">
-        <h1>नए साल में आपका स्वागत है!</h1>
+        <h1>श्रीराधाकृष्णाय नम:</h1>
+        <h2>आपको और आपके पूरे परिवार को नववर्ष की हार्दिक शुभकामनाएं!</h2>
         <button onclick="startNewYear()">नए साल के आगमन के लिए क्लिक करें</button>
     </div>
 
-    <div class="content-screen">
-        <h1>नए साल की हार्दिक शुभकामनाएं!</h1>
-        <p>"सपने सच हों और खुशियां बरसें, नए साल में आपका जीवन चमके।"</p>
-        <button onclick="showPoetry()">आगे बढ़ें</button>
-    </div>
 
+    <div class="content-screen">
+        <h1>HAPPY NEW YEAR 2025</h1>
+        <p>"सपने सच हों और खुशियां बरसें, नए साल में आपका जीवन चमके।"</p>
+        <p>नए साल में तुम्हारी ज़िन्दगी हो खुशियों से भरी,<br>
+        हर ख्वाब हो पूरा, और दिल में सुकून हो गहरी।<br>
+        तेरी राहों में सदा उजाला हो, और कोई दुख न आए,<br>
+        तुम्हारी ज़िन्दगी हर पल खुशियों से सज जाए।<br>
+        <strong>श्री राधे कृष्ण</strong></p>
+    </div>
+    
+    
     <script>
         let canvas, ctx;
 
@@ -423,7 +437,7 @@
         }
 
         function playMusic() {
-            const audio = new Audio('happy-xmas-happy-new-year-2025-271088.mp3');
+            const audio = new Audio('n:\\Radhe Krishna\\happy new year\\Hey Ram JI-.mp3');
             audio.loop = true;
             audio.play().catch((error) => {
                 console.error('म्यूजिक प्ले करने में समस्या हो रही है:', error);
@@ -497,6 +511,14 @@
     <script>
         document.addEventListener('mousemove', function(e) {
             createHeartEffect(e);
+        });
+        // Touch move listener
+        document.addEventListener('touchmove', function (e) {
+            // Prevent default to avoid scrolling while touching
+            e.preventDefault();
+
+            let touch = e.touches[0]; // Get the first touch point
+            createHeartEffect(touch.pageX, touch.pageY);
         });
 
         function createHeartEffect(e) {
